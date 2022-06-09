@@ -17,7 +17,7 @@ class BaseTest:
 class TestHubspot(BaseTest):
 
     @pytest.mark.parametrize(
-        "username", "password",
+        "username , password",
         [
             ("admin@gmail.com", "admin123"),
             ("dhyay@yopmail.com", "dhyay123"),
@@ -25,7 +25,7 @@ class TestHubspot(BaseTest):
     )
     def test_login(self, username, password):
         self.driver.get("https://app.hubspot.com/login")
-        self.driver.findelement(By.ID, "username").send_keys(username)
+        self.driver.find_element(By.ID, "username").send_keys(username)
         time.sleep(3)
-        self.driver.findelement(By.ID, "password").send_keys(password)
+        self.driver.find_element(By.ID, "password").send_keys(password)
         time.sleep(3)
